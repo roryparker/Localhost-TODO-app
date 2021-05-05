@@ -1,3 +1,4 @@
+const { response } = require('express')
 const Todo = require('../models/Todo')
 
 module.exports = {
@@ -9,17 +10,17 @@ module.exports = {
             res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
         }catch(err){
             console.log(err)
-            console.log(request)
+            console.log(request, response)
         }
     },
     createTodo: async (req, res)=>{
         try{
             await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
-            console.log('Todo has been added!')
+            console.log('A TODO item has been added!')
             res.redirect('/todos')
         }catch(err){
             console.log(err)
-            console.log(request)
+            console.log(request, response)
         }
     },
     markComplete: async (req, res)=>{
@@ -27,11 +28,11 @@ module.exports = {
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
                 completed: true
             })
-            console.log('Marked Complete')
+            console.log('A TODO item has been marked complete.')
             res.json('Marked Complete')
         }catch(err){
             console.log(err)
-            console.log(request)
+            console.log(request, response)
         }
     },
     markIncomplete: async (req, res)=>{
@@ -39,22 +40,22 @@ module.exports = {
             await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
                 completed: false
             })
-            console.log('Marked Incomplete')
+            console.log('A TODO item has been marked incomplete.')
             res.json('Marked Incomplete')
         }catch(err){
             console.log(err)
-            console.log(request)
+            console.log(request, response)
         }
     },
     deleteTodo: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
         try{
             await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
-            console.log('Deleted Todo')
+            console.log('A TODO item has been deleted!')
             res.json('Deleted It')
         }catch(err){
             console.log(err)
-            console.log(request)
+            console.log(request, response)
         }
     }
 }    

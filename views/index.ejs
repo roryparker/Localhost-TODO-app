@@ -7,10 +7,35 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="userLocationWithBrowser"></p>
+    
     <h1>Create Your VERY OWN Todolist!</h1>
     <a href="/login"> Login</a>
     <a href="/signup"> Signup</a>
-    <script src="location.js"></script>
+    
+    <div id="location"></div>
+    <script>
+    var div = document.getElementById("location");
+      function getLocation() {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                div.innerHTML = "The Browser Does not Support Geolocation";
+            }
+        }
+
+      function showPosition(position) {
+          div.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+        }
+
+      function showError(error) {
+          if(error.PERMISSION_DENIED){
+              div.innerHTML = "The User have denied the request for Geolocation.";
+            }
+        }
+        
+        getLocation();
+    </script>
+
+
 </body>
 </html>
