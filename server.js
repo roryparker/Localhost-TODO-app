@@ -1,4 +1,5 @@
 const express = require('express')
+const jquery = require('jquery')
 const app = express()
 const mongoose = require('mongoose')
 const passport = require('passport')
