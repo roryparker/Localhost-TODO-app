@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Added JQuery to help with getting user IP, CITY, STATE-->
+    
+    <script> 
+    jQuery.get("http://ipinfo.io", function(response) {
+        console.log(response.city);
+    }, "jsonp");
+    </script>
+    
     <title>Document</title>
 </head>
 <body>
@@ -12,7 +20,7 @@
     <a href="/login"> Login</a>
     <a href="/signup"> Signup</a>
     
-    <div id="location"></div>
+    <div id="location"></div> <!-- Asks for permission to know your location -->
     <script>
     var div = document.getElementById("location");
       function getLocation() {
