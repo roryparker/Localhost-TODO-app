@@ -32,16 +32,16 @@
         }
 
       function showPosition(position) {
-          div.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+          console.log(div.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
         }
 
       function showError(error) {
           if(error.PERMISSION_DENIED){
-              div.innerHTML = "The User have denied the request for Geolocation.";
+              console.log(div.innerHTML = "The User have denied the request for Geolocation.");
             }
         }
         
-        getLocation();
+        getLocation(showPosition, showError);
     </script>
 
 
