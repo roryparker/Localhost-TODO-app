@@ -40,9 +40,11 @@
     </script>
 
     <script>
-    jQuery.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+    let locationX = jQuery.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
         console.log(JSON.stringify(data, null, 2));
       });
+
+      console.log(locationX)
       </script>
 
 
