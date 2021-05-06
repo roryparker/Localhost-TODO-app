@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="jquery-3.6.0.min.js"></script>
+    <link type="text/javascript">
     <title>Document</title>
 </head>
 <body>
@@ -38,9 +39,9 @@
     </script>
 
     <script>
-    function locationtest (jQuery.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+    jQuery.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
         console.log(JSON.stringify(data, null, 2));
-      });)
+      });
       </script>
 
 
